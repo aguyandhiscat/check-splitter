@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/alexwilczewski/Android/dev/personal/Splitter/app/libs/tess-two/src/main/assets" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/alexwilczewski/Android/dev/personal/Splitter/app/libs/tess-two/src/release/assets" />
+    </dataSet>
+
+</merger>

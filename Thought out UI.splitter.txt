@@ -1,0 +1,113 @@
+How can I find the payable items?
+
+What is a payable item?
+An item that is paid.
+An item that is a part of a total.
+An item that is part of a subtotal.
+
+Give an example of a payable items.
+2.20
+3.30
+4.10
+
+What is the total?
+10.61
+
+What is the subtotal?
+9.60
+
+What is tax?
+1.01
+
+What is less than the total?
+ - payable items
+ - subtotal
+ - tax
+
+Tax is less than the total.
+Tax is less than the subtotal.
+Tax can be less than any payable item
+Tax can be greater than any payable item, but less than the greatest payable item
+
+Subtotal is less than the total.
+Subtotal is greater than all payable items.
+Subtotal is the combination of all payable items.
+
+Total is the greatest item.
+Total is the combination of all items.
+
+//
+
+total = greatestItem
+subtotal = 2ndGreatestItem
+
+assume the rest are payableitems
+
+//
+
+Ask: How many seats? (2-15)
+Ask: Which payable items are split all ways? (incl tax)
+
+Best way to split payable items?
+
+A Payable Items list on the left, checkboxes to select.
+Click to split item by # of seats. (2-seatcount)
+Splitted items title appended: (1/splitnumber)
+
+A seats list on the right, showing seats to assign selected items to.
+Clicking on a seat opens up selected items list.
+
+Selected item list slides left 2 panes to left. This 3rd page shows selected items. Removal by click.
+
+//
+
+String parsed =
+"Welcome to Mel's
+Check #: 0001 12/20/11
+Server: Josh F 4:38 PM
+Table: 7/1 Guests: 2
+2 Beef Burgr (09.95/ea) 19.90
+Side: Fries
+1 Bud Light 3.79
+1 Bud 4.50
+Sub-total 28.19
+Sales Tax "mummg.ao"
+TOTAL 30.68
+Balance Due 30.69
+Thank you for your patronage!";
+
+String regex = /^(.*)([0-9]+\.[0-9]{2})/;
+
+array matches = [
+//    ["Check #: ", "0001"],
+    ["2 Beef Burgr (09.95/ea) ", "19.90"],
+    ["1 Bud Light ", "3.79"],
+    ["1 Bud ", "4.50"],
+    ["Sub-total ", "28.19"],
+    ["TOTAL ", "30.68"],
+    ["Balance Due ", "30.69"]
+]
+
+Object Receipt {
+    PricedItem[]
+    PayableItem[]
+
+    function calculatePayableItems() {
+        Loop PricedItem[] as PricedItem
+
+        EndLoop
+    }
+
+    function getGreatestPricedItem();
+}
+
+Object PricedItem {
+    name;
+    price;
+
+
+}
+
+Object PayableItem {
+    Object PricedItem;
+}
